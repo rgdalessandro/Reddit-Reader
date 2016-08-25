@@ -5,7 +5,7 @@ import PostListItem from './postListItem';
 export default class PostList extends Component{
   
   render() {
-      console.log(this.props);
+    console.log(this.props.posts);
     if (this.props.posts) {
       const postItems = this.props.posts.map(post => {
         return (<PostListItem
@@ -15,6 +15,7 @@ export default class PostList extends Component{
           author={ post.data.author }
           subreddit={ post.data.subreddit }
           thumbnail={ post.data.thumbnail }
+          link={ `http://www.reddit.com/${post.data.permalink}` }
         />);
       });
 

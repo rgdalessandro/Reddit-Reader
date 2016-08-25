@@ -4,32 +4,48 @@
 
 .post-list-item {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
-.post-list-item-image {
+.post-list-item-main-header {
+  cursor: pointer;
+}
+
+.post-list-item-main-image {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   overflow: hidden;
   height: 100px;
-  width: 150px;
+  width: 100px;
   margin: 5px;
-
+  float: left;
 }
 
-.post-list-item-image img {
+.post-list-item-main-image img {
   height: 100px;
 }
 
-.post-list-item-info {
+.post-list-item-main-info {
   display: flex;
   flex-direction: column;
 }
 
+.post-list-item-main-author, .post-comments-comment-author {
+  color: #c71c22;
+}
+
+.post-list-item-main-subreddit {
+  color: #73a839;
+}
+
 @media screen and (max-width: 767px) {
-  .post-list-item-image {
+  .post-list-item-main-image {
     height: 50px;
     width: 50px;
+  }
+
+  .post-list-item-main-image img {
+    height: 50px;
   }
 }

@@ -4,6 +4,6 @@ export function getFrontPage() {
   return axios('http://www.reddit.com/.json');
 }
 
-export function getComments() {
+export function getComments(sub, id) {
   return axios(`http://www.reddit.com/r/${sub}/comments/${id}.json?`);
 }

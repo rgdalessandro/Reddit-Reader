@@ -16,7 +16,8 @@ export default class App extends Component {
   }
 
   componentWillMount() {
-    getFrontPage().then(response => {
+    getFrontPage()
+    .then(response => {
       const data = response.data.data.children;
       this.setState({ posts: data });
     });
