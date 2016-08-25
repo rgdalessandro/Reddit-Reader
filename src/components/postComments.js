@@ -17,7 +17,7 @@ export default class PostComments extends Component {
           this.props.comments.map((comment, i, arr) => {
             if (i !== arr.length - 1) {
               return (
-                <div className="post-comments-comment list-group-item">
+                <div key={ comment.data.id } className="post-comments-comment list-group-item">
                   <span className="post-comments-comment-author">{ comment.data.author }:</span> <span className="post-comments-comment-body">{ comment.data.body }</span>
                 </div>
               )

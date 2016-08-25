@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 
 
 export default class NavBar extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      term: '',
+    };
+  }
   
   render() {
     return (
@@ -24,9 +32,19 @@ export default class NavBar extends Component {
             
             <form className="navbar-form navbar-right">
               <div className="form-group">
-                <input type="text" className="form-control" placeholder="Subreddit to Add" />
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Subreddit to Add"
+                  value={ this.state.term }
+                  onChange={event => this.setState({ term: event.target.value })}
+                />
               </div>
-              <button type="submit" className="btn btn-default">Add</button>
+              <button
+                type="submit"
+                className="btn btn-default"
+                onClick={ () => this._handleSubmit() }
+              >Add</button>
             </form>
             
           </div>{/*<!-- /.navbar-collapse -->*/}
@@ -35,4 +53,11 @@ export default class NavBar extends Component {
       </nav>
     );
   }
+
+  _handleSubmit() {
+    event.preventDefault();
+    this.props.onAddSubreddit(this.state.term);
+    this.setState({ term: '' });
+  }
+
 }
