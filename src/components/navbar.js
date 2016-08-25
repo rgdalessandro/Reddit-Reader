@@ -2,18 +2,6 @@ import React, { Component } from 'react';
 
 export default class Navbar extends Component {
   
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      subreddit: ''
-    };
-  }
-
-  componentWillMount() {
-
-  }
-
   render() {
     return (
       <nav className="navbar navbar-default">
@@ -41,7 +29,7 @@ export default class Navbar extends Component {
             </form>
             
           </div>{/*<!-- /.navbar-collapse -->*/}
-          
+
         </div>{/*<!-- /.container-fluid -->*/}
       </nav>
     );
