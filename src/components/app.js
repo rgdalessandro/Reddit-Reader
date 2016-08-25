@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getFrontPage } from '../models/api';
-import Navbar from './navbar';
+import NavBar from './navBar';
+import PostList from './postList';
 
 
 export default class App extends Component {
@@ -9,21 +10,28 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      subreddit: ''
+      subreddit: '',
+      posts: []
     };
   }
 
   componentWillMount() {
     getFrontPage().then(response => {
       const data = response.data.data.children;
-      console.log(data);
+      this.setState({ posts: data });
     });
   }
 
   render() {
     return (
-      <div>
-        <Navbar />
+      <div className="app">
+        <NavBar
+          posts={ this.state.posts }
+        />
+
+        <PostList
+          posts={ this.state.posts }
+        />
       </div>
     );
   }

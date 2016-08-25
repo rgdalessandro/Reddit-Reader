@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
-export default class Navbar extends Component {
+
+export default class NavBar extends Component {
   
   render() {
     return (
-      <nav className="navbar navbar-default">
+      <nav className="navbar navbar-default navbar-fixed-top">
         <div className="container-fluid">
 
           {/*<!-- Brand and toggle get grouped for better mobile display -->*/}
@@ -23,9 +24,9 @@ export default class Navbar extends Component {
             
             <form className="navbar-form navbar-right">
               <div className="form-group">
-                <input type="text" className="form-control" placeholder="Subreddit Search" />
+                <input type="text" className="form-control" placeholder="Subreddit to Add" />
               </div>
-              <button type="submit" className="btn btn-default">Submit</button>
+              <button type="submit" className="btn btn-default">Add</button>
             </form>
             
           </div>{/*<!-- /.navbar-collapse -->*/}
