@@ -7,7 +7,7 @@ export default class NavBar extends Component {
     super(props);
 
     this.state = {
-      term: '',
+      term: '',     // variable to control input field
     };
   }
   
@@ -16,7 +16,6 @@ export default class NavBar extends Component {
       <nav className="navbar navbar-default navbar-fixed-top">
         <div className="container-fluid">
 
-          {/*<!-- Brand and toggle get grouped for better mobile display -->*/}
           <div className="navbar-header">
             <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
               <span className="sr-only">Toggle navigation</span>
@@ -27,7 +26,6 @@ export default class NavBar extends Component {
             <a className="navbar-brand" href="#">Ricardo's Reddit Reader</a>
           </div>
 
-          {/*<!-- Collect the nav links, forms, and other content for toggling -->*/}
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             
             <form className="navbar-form navbar-right">
@@ -36,7 +34,7 @@ export default class NavBar extends Component {
                   type="text"
                   className="form-control"
                   placeholder="Subreddit to Add"
-                  value={ this.state.term }
+                  value={ this.state.term }         // this text input is controlled
                   onChange={event => this.setState({ term: event.target.value })}
                 />
               </div>
@@ -54,6 +52,9 @@ export default class NavBar extends Component {
     );
   }
 
+  // Method to handle what happens when the 'Add' button
+  // is clicked. This method also calls the method passed
+  // down from App through props
   _handleSubmit() {
     event.preventDefault();
     this.props.onAddSubreddit(this.state.term);

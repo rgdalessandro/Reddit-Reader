@@ -1,5 +1,6 @@
 # Reddit Reader
-- A single page application built with React.js that displays Reddit posts with a simple, clean interface. 
+- A single page application built with React.js that displays Reddit posts with a simple, clean interface on desktop and mobile browsers.
+- This application was built strictly under a 5-hour time constraint.
 
 ## Set Up Instructions:
 1) Run npm install in your terminal

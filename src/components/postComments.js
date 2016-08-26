@@ -5,8 +5,9 @@ export default class PostComments extends Component {
 
   render() {
     return(
-      this.props.showComments
-    ? <div className="post-comments list-group">
+      this.props.showComments                       // should comments be shown?
+      // if so, point the arrow down and show them    
+    ? <div className="post-comments list-group"> 
         <span>Comments</span>
         <span
           className="post-commenents glyphicon glyphicon-triangle-bottom"
@@ -25,6 +26,7 @@ export default class PostComments extends Component {
           })
         }
       </div>
+      // if not, point the arrow to the right and don't show them
     : <div className="post-comments">
         <span>Comments</span>
         <span

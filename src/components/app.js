@@ -15,6 +15,8 @@ export default class App extends Component {
     };
   }
 
+  // On page load, get all front page posts
+  // when promise resolves, save the posts to state
   componentWillMount() {
     getFrontPage()
     .then(response => {
@@ -23,11 +25,12 @@ export default class App extends Component {
     });
   }
 
+  // This high level component is parent to the
+  // NavBar and PostList
   render() {
     return (
       <div className="app">
         <NavBar
-          subreddit={ this.state.subreddit }
           onAddSubreddit={ this._onAddSubreddit.bind(this) }
           posts={ this.state.posts }
         />
@@ -39,13 +42,16 @@ export default class App extends Component {
     );
   }
 
+  // This method handles fetching subreddit posts
+  // when the 'Add' button is clicked.
+  // This method is passed down to NavBar throuh props.
   _onAddSubreddit(subreddit) {
     this.setState({ subreddit });
     getSubreddit(subreddit)
     .then(response => {
       console.log('subreddits', response.data.data.children);
       const data = response.data.data.children;
-      this.setState({ posts: this.state.posts.concat(data) });
+      this.setState({ posts: data.concat(this.state.posts) });
     });
   }
 

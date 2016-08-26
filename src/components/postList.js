@@ -5,9 +5,8 @@ import PostListItem from './postListItem';
 export default class PostList extends Component{
   
   render() {
-    console.log(this.props.posts);
     if (this.props.posts) {
-      const postItems = this.props.posts.map(post => {
+      const postItems = this.props.posts.map(post => {  // postItems is an array of posts
         return (<PostListItem
           key={ post.data.id }
           id={ post.data.id }
@@ -21,7 +20,7 @@ export default class PostList extends Component{
 
       return (
         <ul className="col-sm-12 list-group post-list">
-          { postItems }
+          { postItems /* React handles rendering this array */}
         </ul>
       );
     } else {

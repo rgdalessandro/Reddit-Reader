@@ -9,11 +9,13 @@ export default class PostListItem extends Component {
     super(props);
 
     this.state = {
-      showComments: false,
+      showComments: false,    // this variable controls whether comments are shown or not
       comments: []
     };
   }
   
+  // Get comments for this post on component load.
+  // When promise resolves save it to state.
   componentWillMount() {
     getComments(this.props.subreddit, this.props.id)
     .then(response => {
@@ -22,10 +24,12 @@ export default class PostListItem extends Component {
     });
   }
 
+  // The PostListItem component is the parent of the
+  // PostComments component
   render() {
-    const thumbnail = this.props.thumbnail.slice(0,4) === 'http'
-  ? this.props.thumbnail
-  : 'https://cdn1.iconfinder.com/data/icons/black-socicons/512/reddit-128.png';
+    const thumbnail = this.props.thumbnail.slice(0,4) === 'http'    // does this post have a valid thumbnail?
+  ? this.props.thumbnail                                            // if so, use the valid url
+  : 'https://cdn1.iconfinder.com/data/icons/black-socicons/512/reddit-128.png'; // if not, use a default icon
     return (
       <div className="post-list-item list-group-item">
 
@@ -52,6 +56,8 @@ export default class PostListItem extends Component {
     );
   }
 
+  // This method controls whether comments should
+  // be visible or hidden.
   _showCommentsToggle(isNow) {
     this.setState({ showComments: !isNow });
   }
